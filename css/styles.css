@@ -195,10 +195,14 @@ select:-webkit-autofill:focus {
   margin-right: auto;
 }
 
+.site-header__cart {
+  margin-left: 24px;
+  margin-right: 46px;
+}
+
 .site-header__cart-link {
   position: relative;
   display: flex;
-  margin-right: 46px;
   color: var(--text-color);
   text-decoration: none;
 }
@@ -228,6 +232,22 @@ select:-webkit-autofill:focus {
   object-fit: contain;
 }
 
+.site-header__profile-link {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.site-header__profile-link:hover {
+  border-color: var(--orange);
+}
+.site-header__profile-avatar {
+  width: 50px;
+  height: 50px;
+}
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),
