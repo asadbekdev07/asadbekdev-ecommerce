@@ -177,6 +177,7 @@ select:-webkit-autofill:focus {
 .sitenav__link:active {
   opacity: 0.6;
 }
+
 /* SITE-HEADER  */
 .site-header__container {
   display: flex;
@@ -192,6 +193,39 @@ select:-webkit-autofill:focus {
 
 .site-header__sitenav {
   margin-right: auto;
+}
+
+.site-header__cart-link {
+  position: relative;
+  display: flex;
+  margin-right: 46px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.site-header__cart-link:hover {
+  color: var(--text-color-dark);
+}
+.site-header__cart-link:active {
+  opacity: 0.6;
+}
+
+.site-header__cart-product-count {
+  position: absolute;
+  left: calc(100% - 13px);
+  top: -6px;
+  padding: 1px 6px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12.4px;
+  border-radius: 7px;
+  background-color: var(--orange);
+  color: #ffffff;
+}
+
+.site-header__cart-icon {
+  width: 22px;
+  height: 20px;
+  object-fit: contain;
 }
 
 @media
