@@ -3,6 +3,10 @@
   --text-color: #69707d;
   --text-color-dark: #1d2026;
   --orange: #ff7e1b;
+  --orange-hover: #ffab6a;
+  --accent-color: #ffeee2;
+  --light-bg: #f6f8fd;
+  --font-family: "Kumbh Sans", "Arial", sans-serif;
 }
 
 /* FONT-FACE  */
@@ -45,10 +49,10 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Kumbh Sans", "Arial", sans-serif;
+  font-family: var(--font-family);
   font-size: 16px;
   line-height: 26px;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   color: var(--text-color);
 }
 
@@ -99,9 +103,9 @@ select:-webkit-autofill:focus {
 /* CONTAINER  */
 .container {
   width: 100%;
-  max-width: 1110px;
-  padding-left: 45px;
-  padding-right: 45px;
+  max-width: 1148px;
+  padding-left: 24px;
+  padding-right: 24px;
   margin-left: auto;
   margin-right: auto;
 }
