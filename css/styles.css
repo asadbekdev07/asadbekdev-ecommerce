@@ -136,24 +136,7 @@ select:-webkit-autofill:focus {
   flex-grow: 1;
 }
 
-
-/* SITE-HEADER  */
-.site-header__container {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--divider-bg);
-}
-
-
-.site-header__logo {
-  flex-shrink: 0;
-  margin-right: 56px;
-}
-
-.sitenav {
-  margin-right: auto;
-}
-
+/* SITENAV  */
 .sitenav__list {
   display: flex;
   padding: 0;
@@ -193,6 +176,22 @@ select:-webkit-autofill:focus {
 
 .sitenav__link:active {
   opacity: 0.6;
+}
+/* SITE-HEADER  */
+.site-header__container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--divider-bg);
+}
+
+
+.site-header__logo {
+  flex-shrink: 0;
+  margin-right: 56px;
+}
+
+.site-header__sitenav {
+  margin-right: auto;
 }
 
 @media
