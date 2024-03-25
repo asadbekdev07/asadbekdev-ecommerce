@@ -22,7 +22,7 @@
 
 @font-face {
   font-family: "Kumbh Sans";
-  src: url("../fonts/") format("woff2"),
+  src: url("../fonts/KumbhSans-Regular.woff2") format("woff2"),
   url("../fonts/KumbhSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -199,8 +199,8 @@ select:-webkit-autofill:focus {
   line-height: 20px;
   color: var(--text-color-dark);
 }
-.shopping-cart__inner {
-}
+/* .shopping-cart__inner {
+} */
 
 /* SITE-HEADER  */
 .site-header__container {
@@ -221,12 +221,12 @@ select:-webkit-autofill:focus {
 }
 
 .site-header__cart {
-  position: relative;
   margin-left: 24px;
   margin-right: 46px;
 }
 
 .site-header__cart-link {
+  position: relative;
   display: flex;
   color: var(--text-color);
   text-decoration: none;
