@@ -133,3 +133,25 @@ if (elLigtboxControlPrev) {
         elImgLightboxActiveImg.srcset = `${elActiveThumbnail.dataset.imgShowcaseBig} 1x, ${elActiveThumbnail.dataset.imgShowcaseRetina} 2x`;
   })
 }
+
+// PRODUCT-COUNT
+const elProductQuantityDecrementBtn  = document.querySelector(".js-product-quantity-decrement-btn");
+const elProductQuantityIncrementBtn = document.querySelector(".js-product-quantity-increment-btn");
+const elProductInfoQuantity = document.querySelector(".product-info__quantity");
+
+if (elProductQuantityIncrementBtn) {
+  elProductQuantityIncrementBtn.addEventListener("click", function () {
+    elProductInfoQuantity.textContent = parseInt(elProductInfoQuantity.textContent, 10)+1;
+  })
+}
+
+if (elProductQuantityDecrementBtn) {
+  elProductQuantityDecrementBtn.addEventListener("click", function () {
+    const qty = parseInt(elProductInfoQuantity.textContent, 10);
+
+    if (qty > 0) {
+      elProductInfoQuantity.textContent = qty - 1;
+    }
+
+  })
+}
