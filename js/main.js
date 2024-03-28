@@ -16,9 +16,10 @@ if (elSiteHeaderCartLink) {
 }
 
 // IMG SHOWCASE
-const elImgShowcaseActiveImg = document.querySelector(".img-showcase__active-img");
-const elsImgShowcaseThumbnailBtn = document.querySelectorAll(".js-img-showcase-thumbnail-btn");
-const elsImgShowcaseThumbnail = document.querySelectorAll(".js-img-showcase-thumbnail");
+const elProductPageGallery = document.querySelector(".product-page__gallery");
+const elImgShowcaseActiveImg = elProductPageGallery.querySelector(".img-showcase__active-img");
+const elsImgShowcaseThumbnailBtn = elProductPageGallery.querySelectorAll(".js-img-showcase-thumbnail-btn");
+const elsImgShowcaseThumbnail = elProductPageGallery.querySelectorAll(".js-img-showcase-thumbnail");
 
 // Deactivate thumbnail active
 function deactivateImgShowcaseThumbnailActive () {
@@ -57,3 +58,78 @@ if (elLightboxClose) {
     elLightbox.classList.remove(modifiers.lightboxOpen);
   });
 };
+
+// LIGHTBOX-SHOWCASE
+const elImgLightboxActiveImg = elLightbox.querySelector(".img-showcase__active-img");
+const elsImgLightboxThumbnailBtn = elLightbox.querySelectorAll(".js-img-lightbox-thumbnail-btn");
+const elsImgLightboxThumbnail = elLightbox.querySelectorAll(".js-img-showcase-thumbnail");
+
+
+// Deactivate thumbnail active
+function deactivateImgLightboxThumbnailActive () {
+  elsImgLightboxThumbnail.forEach(function (elImgLightboxThumbnail) {
+    elImgLightboxThumbnail.classList.remove(modifiers.imgThumbnailActive);
+  });
+};
+
+elsImgLightboxThumbnailBtn.forEach(function (elImgLightboxThumbnailBtn) {
+  elImgLightboxThumbnailBtn.addEventListener("click", function () {
+    // Remove active class from all buttons
+    deactivateImgLightboxThumbnailActive();
+
+    // Add active class to clicked button
+    elImgLightboxThumbnailBtn.parentElement.classList.add(modifiers.imgThumbnailActive);
+
+    elImgLightboxActiveImg.src = elImgLightboxThumbnailBtn.dataset.imgShowcaseBig;
+    elImgLightboxActiveImg.srcset = `${elImgLightboxThumbnailBtn.dataset.imgShowcaseBig} 1x, ${elImgLightboxThumbnailBtn.dataset.imgShowcaseRetina} 2x`;
+  });
+});
+
+// Lightbox control
+const elLigtboxControlPrev = document.querySelector(".js-lightbox-control-prev");
+const elLigtboxControlNext  = document.querySelector(".js-lightbox-control-next");
+
+if (elLigtboxControlNext) {
+  elLigtboxControlNext.addEventListener("click", function () {
+
+    // Find active li element
+    const elActiveItem = elLightbox.querySelector(".img-showcase__thumbnail--active");
+
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    // Make next element active
+    if (elActiveItem.nextElementSibling === null) {
+      elsImgLightboxThumbnail[0].classList.add(modifiers.imgThumbnailActive);
+    } else {
+      elActiveItem.nextElementSibling.classList.add(modifiers.imgThumbnailActive);
+    };
+
+    // Update active image
+    const elActiveThumbnail = elLightbox.querySelector(".img-showcase__thumbnail--active .js-img-lightbox-thumbnail-btn");
+    elImgLightboxActiveImg.src = elActiveThumbnail.dataset.imgShowcaseBig;
+    elImgLightboxActiveImg.srcset = `${elActiveThumbnail.dataset.imgShowcaseBig} 1x, ${elActiveThumbnail.dataset.imgShowcaseRetina} 2x`;
+  })
+}
+
+if (elLigtboxControlPrev) {
+  elLigtboxControlPrev.addEventListener("click", function () {
+    // Find active li element
+    const elActiveItem = elLightbox.querySelector(".img-showcase__thumbnail--active");
+
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    // Make next element active
+    if (elActiveItem.previousElementSibling === null) {
+      elsImgLightboxThumbnail[elsImgLightboxThumbnail.length - 1].classList.add(modifiers.imgThumbnailActive);
+    } else {
+      elActiveItem.previousElementSibling.classList.add(modifiers.imgThumbnailActive);
+    };
+
+        // Update active image
+        const elActiveThumbnail = elLightbox.querySelector(".img-showcase__thumbnail--active .js-img-lightbox-thumbnail-btn");
+        elImgLightboxActiveImg.src = elActiveThumbnail.dataset.imgShowcaseBig;
+        elImgLightboxActiveImg.srcset = `${elActiveThumbnail.dataset.imgShowcaseBig} 1x, ${elActiveThumbnail.dataset.imgShowcaseRetina} 2x`;
+  })
+}
